@@ -1,0 +1,11 @@
+framework:
+    messenger:
+        transports:
+            async:
+                dsn: '%env(MESSENGER_TRANSPORT_DSN)%'
+                serializer: messenger.transport.symfony_serializer
+            failed: 'doctrine://default?queue_name=message_failed'
+            # sync: 'sync://'
+
+        routing:
+             'App\Authentication\Notification\UserCreateNotification': async

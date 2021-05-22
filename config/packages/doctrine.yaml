@@ -1,0 +1,30 @@
+doctrine:
+    dbal:
+        url: '%env(resolve:DATABASE_URL)%'
+
+        # IMPORTANT: You MUST configure your server version,
+        # either here or in the DATABASE_URL env var (see .env file)
+        #server_version: '13'
+    orm:
+        auto_generate_proxy_classes: true
+        naming_strategy: doctrine.orm.naming_strategy.underscore_number_aware
+        auto_mapping: true
+        mappings:
+            Auth:
+                is_bundle: false
+                type: annotation
+                dir: '%kernel.project_dir%/src/Authentication/Model/Entity'
+                prefix: 'App\Authentication\Model\Entity'
+                alias: Auth
+            Core:
+                is_bundle: false
+                type: annotation
+                dir: '%kernel.project_dir%/src/Core/Model/Entity'
+                prefix: 'App\Core\Model\Entity'
+                alias: Core
+            User:
+                is_bundle: false
+                type: annotation
+                dir: '%kernel.project_dir%/src/User/Model/Entity'
+                prefix: 'App\User\Model\Entity'
+                alias: User

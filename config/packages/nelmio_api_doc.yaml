@@ -1,0 +1,21 @@
+nelmio_api_doc:
+    areas:
+        default:
+            path_patterns:
+                - ^/(?!api|_) # Exclude api/doc and symfony route started with _
+
+    documentation:
+        servers:
+            - { url: "https://127.0.0.1:3000/" }
+        info:
+            title: "API"
+            description: "API documentation"
+            version: 1.0.0
+        components:
+            securitySchemes:
+                Bearer:
+                    type: http
+                    scheme: bearer
+                    bearerFormat: JWT
+        security:
+            -   Bearer: []
